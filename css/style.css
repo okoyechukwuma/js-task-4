@@ -1,0 +1,208 @@
+*{
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+}
+
+h1{
+    text-align: center;
+}
+
+.quiz-container{
+    max-width: 700px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 12px 0 #444;
+}
+
+.question-number h3{
+    color: rgb(18, 124, 89);
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.question{
+    font-size: 22px;
+    color: #222;
+    padding: 20px 0;
+}
+
+.options div{
+    background-color: #eee;
+    padding: 15px;
+    color: #222;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.options div.disabled{
+    pointer-events: none;
+}
+
+.answers-tracker{
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    display: flex;
+}
+
+.answers-tracker div{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 5px;
+    display: flex;
+}
+
+.answers-tracker div.correct{
+     background-color: green;
+}
+
+.answers-tracker div.correct::before{
+    content: "\2714";
+    margin: auto;
+    color: #fff;
+    font-size: 24px;
+}
+
+.answers-tracker div.wrong{
+     background-color: rgb(248, 11, 31);
+}
+
+.answers-tracker div.wrong::before{
+    content: "\2718";
+    margin: auto;
+    color: #fff;
+    font-size: 24px;
+}
+
+.options div.correct{
+    z-index: 1;
+    color: #fff;
+}
+
+.options div.correct::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(18, 126, 8);
+    z-index: -1;
+    transform: translateX(-100%);
+    animation: animateBackground 1s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateBackground{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.options div.wrong{
+    z-index: 1;
+    color: #fff;
+}
+
+.options div.wrong::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 0, 0);
+    z-index: -1;
+    transform: translateX(-100%);
+    animation: animateBackground 1s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animateBackground{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.button .btn{
+    background-color: rgb(33, 154, 235);
+    padding: 10px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    transition: background-color .6s ease;
+}
+
+.button .btn:hover{
+    background-color: rgb(13, 90, 141);
+}
+
+.quiz-over{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 10;
+    color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-over .box{
+    background-color: rgba(10, 146, 146, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    flex-basis: 700px;
+    max-width: 700px;
+}
+
+.quiz-over .box h1{
+    font-size: 36px;
+    margin: 0 0 20px;
+}
+
+.quiz-over .box button{
+    background-color: tomato;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    transition: background-color .7s ease;
+    cursor: pointer;
+}
+
+.quiz-over .box button:hover{
+    background-color: rgb(168, 40, 17);
+}
